@@ -1,0 +1,24 @@
+{
+  "name": "hayboys-client",
+  "homepage": "https://github.com/kocsenc/hayboys-client",
+  "authors": [
+    "Kocsen <kocsenc@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/managed",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "semantic-ui#~2.1.6",
+    "angular": "~1.4.8",
+    "angular-resource": "~1.4.8"
+  }
+}
