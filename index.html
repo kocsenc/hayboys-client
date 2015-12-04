@@ -9,16 +9,72 @@
 
   <!-- Stylesheet imports -->
   <link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.min.css">
-  <link rel="stylesheet" type="text/css" href="src/css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 
   <!-- JS Imports -->
-  <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
   <script src="bower_components/semantic/dist/semantic.min.js"></script>
 
-  <script src="src/js/main.js"></script>
+  <script src="js/main.js"></script>
 </head>
-<body ng-app="hayboys" ng-controller="MainCtrl">
-  <h1>POTATO {{potato}}</h1>
+<body ng-app="hayboys" ng-controller="main">
+
+<div class="ui text container">
+  <div class="row">
+    <h1 class="ui huge dividing header">HayBoys 2K Quotes</h1>
+  </div>
+
+  <div class="row">
+    <div class="ui column blue segment"
+      ng-class="{'loading': loading}">
+      <div class="ui huge feed">
+
+
+        <div class="ui event vertical segment" ng-repeat="quote in quotes">
+          <div class="label">
+            <img src="css/lego.jpg">
+          </div>
+          <div class="content">
+            <div class="summary" style="font-size: 15pt;">
+              {{quote.value.author}}
+            </div>
+            <div class="extra text">
+              {{quote.value.quote}}
+            </div>
+            <div class="meta">
+              <a class="like">
+
+                <i class="like icon"></i> 2K{{quote.value['2k']}}
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="event" ng-repeat="quote in quotes">
+          <div class="label">
+            <img src="css/lego.jpg">
+          </div>
+          <div class="content">
+            <div class="ui blue label">
+              {{quote.value.author}}
+              <div class="detail">2K{{quote.value['2k']}}</div>
+            </div>
+            <div class="extra text">
+              {{quote.value.quote}}
+            </div>
+            <div class="meta">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
 </html>
