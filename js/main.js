@@ -20,7 +20,7 @@ function MainCtrl($resource, $scope) {
   var vm = $scope;
 
   vm.loading = true;
-  QuotesResource.get({}, function (data) {
+  QuotesResource.get({descending: true}, function (data) {
     vm.loading = false;
     vm.quotes = data.rows;
   }, function (err) {
