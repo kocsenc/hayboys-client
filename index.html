@@ -23,16 +23,23 @@
 
 <div class="ui text container">
   <div class="row">
-    <h1 class="ui huge dividing header">HayBoys 2K Quotes</h1>
+    <h1 class="ui huge dividing header">
+      HayBoys 2K Quotes
+    </h1>
+
   </div>
 
   <div class="row">
+    <div class="ui icon fluid input">
+      <input type="text"
+             placeholder="Search by anything..."
+             ng-model="search.$">
+      <i class="circular search link icon"></i>
+    </div>
     <div class="ui column blue segment"
-      ng-class="{'loading': loading}">
+         ng-class="{'loading': loading}">
       <div class="ui huge feed">
-
-
-        <div class="ui event vertical segment" ng-repeat="quote in quotes">
+        <div class="ui event vertical segment" ng-repeat="quote in quotes | filter:search:strict">
           <div class="label">
             <img src="css/lego.jpg">
           </div>
@@ -48,25 +55,6 @@
 
                 <i class="like icon"></i> 2K{{quote.value['2k']}}
               </a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="event" ng-repeat="quote in quotes">
-          <div class="label">
-            <img src="css/lego.jpg">
-          </div>
-          <div class="content">
-            <div class="ui blue label">
-              {{quote.value.author}}
-              <div class="detail">2K{{quote.value['2k']}}</div>
-            </div>
-            <div class="extra text">
-              {{quote.value.quote}}
-            </div>
-            <div class="meta">
-
             </div>
           </div>
         </div>
