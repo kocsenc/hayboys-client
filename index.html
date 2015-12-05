@@ -9,12 +9,14 @@
 
   <!-- Stylesheet imports -->
   <link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 
   <!-- JS Imports -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
   <script src="bower_components/semantic/dist/semantic.min.js"></script>
 
   <script src="js/main.js"></script>
@@ -26,16 +28,62 @@
     <h1 class="ui huge dividing header">
       HayBoys 2K Quotes
     </h1>
-
   </div>
-
   <div class="row">
-    <div class="ui icon fluid input">
+    <div class="ui icon input">
       <input type="text"
              placeholder="Search by anything..."
              ng-model="search.$">
-      <i class="circular search link icon"></i>
+      <i class="search link icon"></i>
     </div>
+    <button class="ui right labeled green icon right floated button"
+            ng-click="newQuote.show = !newQuote.show">
+      <i class="comment outline icon"></i>
+      New Quote
+    </button>
+
+    <!-- Add new quote row -->
+    <div class="row animate-show" style="margin-top: 1em" ng-show="newQuote.show">
+      <div class="ui teal segment">
+
+        <!-- Error box -->
+        <div class="ui warning message animate-show"
+             ng-show="newQuote.showError">
+          <i class="close icon" ng-click="newQuote.show = false;"></i>
+
+          <div class="header">La cagate...</div>
+          <div class="content">
+            {{newQuote.error}}
+          </div>
+        </div>
+
+        <div class="ui form">
+          <div class="inline fields">
+            <div class="eleven wide field">
+              <input type="text"
+                     placeholder="Quote"
+                     ng-model="newQuote.form.quote" required>
+            </div>
+            <div class="three wide field">
+              <input type="text"
+                     placeholder="Author"
+                     ng-model="newQuote.form.author" required>
+            </div>
+            <div class="two wide field">
+              <label>2K</label>
+              <input type="number"
+                     placeholder="15"
+                     min="15"
+                     ng-model="newQuote.form.kk" required>
+            </div>
+          </div>
+          <div class="ui teal fluid button" ng-click="create()">Add</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Quotes -->
     <div class="ui column blue segment"
          ng-class="{'loading': loading}">
       <div class="ui huge feed">
@@ -52,7 +100,6 @@
             </div>
             <div class="meta">
               <a class="like">
-
                 <i class="like icon"></i> 2K{{quote.value['2k']}}
               </a>
             </div>
