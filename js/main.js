@@ -36,7 +36,7 @@ function MainCtrl($resource, $scope) {
     form: {
       //quote: '',
       //author: '',
-      kk: 15
+      kk: 16
     },
     showError: false,
     error: '',
