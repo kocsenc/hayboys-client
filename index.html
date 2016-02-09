@@ -30,17 +30,24 @@
     </h1>
   </div>
   <div class="row">
-    <div class="ui icon input">
-      <input type="text"
-             placeholder="Search by anything..."
-             ng-model="search.$">
-      <i class="search link icon"></i>
+
+    <div class="ui right aligned grid">
+      <div class="left floated right aligned six wide column">
+        <div class="ui icon input">
+          <input type="text"
+                 placeholder="Search by anything..."
+                 ng-model="search.$">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+      <div class="right floated left aligned six wide column">
+        <button class="ui right labeled green icon right floated button"
+                ng-click="newQuote.show = !newQuote.show">
+          <i class="comment outline icon"></i>
+          New Quote
+        </button>
+      </div>
     </div>
-    <button class="ui right labeled green icon right floated button"
-            ng-click="newQuote.show = !newQuote.show">
-      <i class="comment outline icon"></i>
-      New Quote
-    </button>
 
     <!-- Add new quote row -->
     <div class="row animate-show" style="margin-top: 1em" ng-show="newQuote.show">
